@@ -1,0 +1,19 @@
+name: 'runs-on/debug'
+description: 'Continuously ship RunsOn runner debug logs to CloudWatch Logs'
+runs:
+  using: 'node24'
+  main: 'index.js'
+
+inputs:
+  stream_suffix:
+    description: 'CloudWatch log stream suffix. The final stream is <instance-id>/<stream_suffix>.'
+    required: false
+    default: 'debug'
+  snapshot_interval:
+    description: 'Interval for system/process snapshots.'
+    required: false
+    default: '5s'
+  include_snapshots:
+    description: 'Whether to include periodic system/process snapshots.'
+    required: false
+    default: 'true'
